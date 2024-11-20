@@ -5,10 +5,10 @@ function Formulario (){
             <input type="text" placeholder="Marca" />
 
 
-            <input type="button" placeholder="Cadastro" />
-            <input type="button" placeholder="Alterar" />
-            <input type="button" placeholder="Remover" />
-            <input type="button" placeholder="Cancelar" />
+            <input type="button" value="Cadastro" />
+            <input type="button" value="Alterar" />
+            <input type="button" value="Remover" />
+            <input type="button" value="Cancelar" />
         </form>
     )
 }
