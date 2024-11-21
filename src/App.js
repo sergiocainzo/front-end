@@ -6,7 +6,7 @@ import Tabela from "./Tabela";
 function App() {
   //UseState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
-  const [produtos, setProdutos] = useState();
+  const [produtos, setProdutos] = useState([]);
 
   //UseEffect
   useEffect(() => {
@@ -18,12 +18,12 @@ function App() {
   //Retorno
   return (
     <div>
-      <p>{JSON.stringify(produtos)}</p>
+      
       <h1>Formulário de Cadastro</h1>
       <Formulario botao={btnCadastrar} />
 
       <h1>Tabela de Produtos</h1>
-      <Tabela />
+      <Tabela vetor={produtos}/>
     </div>
   );
 }
