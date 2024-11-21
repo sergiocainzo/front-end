@@ -4,16 +4,12 @@ import Formulario from "./Formulario";
 import Tabela from "./Tabela";
 
 function App() {
-
   //Objeto Produto
   const produto = {
-    codigo:0,
-    nome:'',
-    marca:''
-  }
-
-
-
+    codigo: 0,
+    nome: "",
+    marca: "",
+  };
 
   //UseState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
@@ -27,15 +23,20 @@ function App() {
       .then((retorno_convertido) => setProdutos(retorno_convertido));
   }, []);
 
+  // Obtendo os dados do formulário
+  const aoDigitar = (e) => {
+    setObjProduto({...objProduto, [e.target.name]:e.target.value});
+  };
+
   //Retorno
   return (
     <div>
       <p>{JSON.stringify(objProduto)}</p>
       <h1>Formulário de Cadastro</h1>
-      <Formulario botao={btnCadastrar} />
+      <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} />
 
       <h1>Tabela de Produtos</h1>
-      <Tabela vetor={produtos}/>
+      <Tabela vetor={produtos} />
     </div>
   );
 }
