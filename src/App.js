@@ -14,9 +14,11 @@ function App() {
 
 
 
+
   //UseState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
   const [produtos, setProdutos] = useState([]);
+  const [objProduto, setObjProduto] = useState(produto);
 
   //UseEffect
   useEffect(() => {
@@ -28,7 +30,7 @@ function App() {
   //Retorno
   return (
     <div>
-      
+      <p>{JSON.stringify(objProduto)}</p>
       <h1>Formulário de Cadastro</h1>
       <Formulario botao={btnCadastrar} />
 
