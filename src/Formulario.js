@@ -5,6 +5,7 @@ function Formulario({
   obj,
   cancelar,
   remover,
+  alterar,
 }) {
   return (
     <form>
@@ -34,7 +35,12 @@ function Formulario({
         />
       ) : (
         <div>
-          <input type="button" value="Alterar" className="btn btn-warning" />
+          <input
+            type="button"
+            value="Alterar"
+            className="btn btn-warning"
+            onClick={alterar}
+          />
           <input
             type="button"
             value="Remover"
