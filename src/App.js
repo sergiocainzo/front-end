@@ -53,6 +53,7 @@ function App() {
   // Limpar Formulário
   const limparFormulario = () => {
     setObjProduto(produto);
+    setBtnCadastrar(true);
   };
 
   // Selecionar Produto
@@ -60,6 +61,7 @@ function App() {
     setObjProduto(produtos[indice]);
     setBtnCadastrar(false);
   };
+
 
   //Retorno
   return (
@@ -70,6 +72,7 @@ function App() {
         eventoTeclado={aoDigitar}
         cadastrar={cadastrar}
         obj={objProduto}
+        cancelar={limparFormulario}
       />
 
       <h1>Tabela de Produtos</h1>
