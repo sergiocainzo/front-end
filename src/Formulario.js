@@ -1,4 +1,4 @@
-function Formulario({ botao, eventoTeclado, cadastrar }) {
+function Formulario({ botao, eventoTeclado, cadastrar, obj }) {
   return (
     <form>
       <input
@@ -7,6 +7,7 @@ function Formulario({ botao, eventoTeclado, cadastrar }) {
         className="form-control"
         onChange={eventoTeclado}
         name="nome"
+        value={obj.nome}
       />
       <input
         type="text"
@@ -14,6 +15,7 @@ function Formulario({ botao, eventoTeclado, cadastrar }) {
         className="form-control"
         onChange={eventoTeclado}
         name="marca"
+        value={obj.marca}
       />
 
       {botao ? (
