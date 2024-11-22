@@ -40,22 +40,26 @@ function App() {
     })
       .then((retorno) => retorno.json())
       .then((retorno_convertido) => {
-        if(retorno_convertido.mensagem !== undefined){
+        if (retorno_convertido.mensagem !== undefined) {
           alert(retorno_convertido.mensagem);
-        }else{
+        } else {
           setProdutos([...produtos, retorno_convertido]);
-          alert('Produto cadastrado com sucesso!')
+          alert("Produto cadastrado com sucesso!");
           limparFormulario();
         }
       });
   };
 
-
-
   // Limpar Formulário
   const limparFormulario = () => {
     setObjProduto(produto);
-  }
+  };
+
+  // Selecionar Produto
+  const selecionarProduto = (indice) => {
+    setObjProduto(produtos[indice]);
+    setBtnCadastrar(false);
+  };
 
   //Retorno
   return (
@@ -69,7 +73,7 @@ function App() {
       />
 
       <h1>Tabela de Produtos</h1>
-      <Tabela vetor={produtos} />
+      <Tabela vetor={produtos} selecionar={selecionarProduto} />
     </div>
   );
 }
