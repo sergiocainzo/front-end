@@ -50,6 +50,42 @@ function App() {
       });
   };
 
+  // Remover produto
+  const remover = () => {
+    fetch("http://localhost:8080/remover/"+objProduto.codigo, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((retorno) => retorno.json())
+      .then((retorno_convertido) => {
+        
+        // Mensagem
+        alert(retorno_convertido.mensagem);
+
+        // Cópia do Vetor de Produtos
+        let vetorTemp = [...produtos];
+
+        // Índice
+        let indice = vetorTemp.findIndex((p) => {
+          return p.codigo === objProduto.codigo;
+        });
+
+        // Remover Produto do VetorTemp
+        vetorTemp.splice(indice, 1);
+
+        // Atualizar o vetor de Produtos
+        setProdutos(vetorTemp);
+
+        // Limpar Formulário
+        limparFormulario();
+
+
+      });
+  };
+
   // Limpar Formulário
   const limparFormulario = () => {
     setObjProduto(produto);
@@ -71,6 +107,7 @@ function App() {
         botao={btnCadastrar}
         eventoTeclado={aoDigitar}
         cadastrar={cadastrar}
+        remover={remover}
         obj={objProduto}
         cancelar={limparFormulario}
       />
